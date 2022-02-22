@@ -10,7 +10,7 @@ import (
 
 // TODO: refactor this hard limit and revise client locking
 // Client Max Connections
-var maxConns = 500
+var maxConns = 2000
 
 // Client is an interface to RedisBloom redis commands
 type Client struct {
@@ -613,15 +613,17 @@ func ParseTDigestInfo(result interface{}, err error) (info TDigestInfo, outErr e
 
 	return info, nil
 }
+
 // SetKV - key,value
 // args:
-// key - 
-// value - 
+// key -
+// value -
 func (client *Client) SetKV(key string, value string) (string, error) {
 	conn := client.Pool.Get()
 	defer conn.Close()
 	return redis.String(conn.Do("SET", key, value))
 }
+
 // GetKey -
 // args:
 // key - the name of key

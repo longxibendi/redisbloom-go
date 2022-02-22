@@ -2,8 +2,8 @@ package redis_bloom_go_test
 
 import (
 	"fmt"
-	redisbloom "github.com/RedisBloom/redisbloom-go"
 	"github.com/gomodule/redigo/redis"
+	redisbloom "github.com/longxibendi/redisbloom-go"
 	"log"
 )
 

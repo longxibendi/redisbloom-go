@@ -1,4 +1,4 @@
-module github.com/RedisBloom/redisbloom-go
+module github.com/longxibendi/redisbloom-go
 
 go 1.12
 

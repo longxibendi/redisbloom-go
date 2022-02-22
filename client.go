@@ -613,3 +613,20 @@ func ParseTDigestInfo(result interface{}, err error) (info TDigestInfo, outErr e
 
 	return info, nil
 }
+// SetKV - key,value
+// args:
+// key - 
+// value - 
+func (client *Client) SetKV(key string, value string) (string, error) {
+	conn := client.Pool.Get()
+	defer conn.Close()
+	return redis.String(conn.Do("SET", key, value))
+}
+// GetKey -
+// args:
+// key - the name of key
+func (client *Client) GetKey(key string) (string, error) {
+	conn := client.Pool.Get()
+	defer conn.Close()
+	return redis.String(conn.Do("GET", key))
+}
